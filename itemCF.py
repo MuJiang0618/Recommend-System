@@ -113,14 +113,14 @@ def result(sim_info, user_click):
     for user in user_click:
         click_list = user_click[user]
         recom_info.setdefault(user, {})
-        for itemid in click_list[: 3]:   #推荐与用户喜欢的3部电影分别相似的电影中最相似的5部
+        for itemid in click_list[: 3]:
             if itemid not in sim_info:
                 continue
 
             for itemsimzuhe in sim_info[itemid][:topN]:
                 itemsimid = itemsimzuhe[0]
                 itemsimscore = itemsimzuhe[1]
-                recom_info[user][intemsimid] = itemsimscore
+                recom_info[user][itemsimid] = itemsimscore
 
     return recom_info
 
