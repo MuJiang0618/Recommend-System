@@ -53,7 +53,7 @@ def getItemInfo(item_file):
             continue
 
         itemList = line.strip().split(',')
-        print(itemList)
+        
         if len(itemList) < 3:
             continue
         
@@ -122,10 +122,11 @@ def result(sim_info, user_click):
                 itemsimscore = itemsimzuhe[1]
                 recom_info[user][itemsimid] = itemsimscore
 
+    print(recom_result['1'])
+
     return recom_info
 
 if __name__ == '__main__':
     user_click = getUserClick(r'D:\dataSet\movielens\ratings.csv')
     sim_info = calItemSim(user_click)
     recom_result = result(sim_info, user_click)
-    print(recom_result['1'])
